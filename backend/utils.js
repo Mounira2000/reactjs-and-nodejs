@@ -1,12 +1,12 @@
 //generate token using process.env.jwt_secret
-var jwt = require ('jsonwebtoken');
+var jwt = require('jsonwebtoken');
 
-function generateToken (user){
+function generateToken(user) {
 
     if (!user) return null;
 
-        var u = {
-        //idU: user.idU,
+    var u = {
+        idU: user.idU,
         emailUser: user.emailUser,
         nameUser: user.nameUser,
         passwordUser: user.passwordUser
@@ -16,20 +16,20 @@ function generateToken (user){
 }
 
 
-function getCleanUser (user){
+function getCleanUser(user) {
 
     if (!user) return null;
 
-        return{
+    return {
         idU: user.idU,
         emailUser: user.emailUser,
         nameUser: user.nameUser,
         passwordUser: user.passwordUser
     };
 
- };
+};
 
- module.exports = {
-     generateToken,
-     getCleanUser
- }
+module.exports = {
+    generateToken,
+    getCleanUser
+}

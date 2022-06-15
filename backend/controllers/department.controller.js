@@ -87,6 +87,7 @@ exports.update = (req, res) => {
         });
 };
 
+
 //Delete a department with the specified id in the request 
 exports.delete = (req, res) => {
     const idD = req.params.id;

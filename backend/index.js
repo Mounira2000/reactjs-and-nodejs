@@ -1,9 +1,21 @@
 require ("dotenv").config();
 const jwt = require('jsonwebtoken');
+const cors = require("cors");
 
 const express = require("express");
 
 const app = express();
+
+var path = require('path');
+
+// public directory learn more about it 
+app.use(express.static(path.join(__dirname, 'public')));
+
+//methods in a youtube video
+app.use('/Images', express.static('./Images'))
+
+//cors allow to make the communication between the client and the backend
+app.use(cors());
 
 //parse reauest of contenet type application json 
 app.use(express.json());
@@ -14,12 +26,12 @@ app.use(express.urlencoded({extended: true}));
 //we initialiaze sequelize appliying the previos transparency
 const db = require ("./models");
 //normal use. Doesn´t delete the database data
-db.sequelize.sync();
+//db.sequelize.sync();
 
 // In development you may need to drop the existing table and resync database
-/*db.sequelize.sync({ force : true }).then (()=>{
+db.sequelize.sync({ force : true }).then (()=>{
     console.log("Drop and re-sync db");
-});*/
+});
 
 //middleware that checks if JWT token exists and verifies it if it does exist.
 //In all future routes, this helps to know if the request is authenticated or not.
@@ -47,7 +59,7 @@ app.use(function (req, res, next) {
       if (err) {
         return res.status(401).json({
           error: true,
-          message: "Invalid user."
+          message: "Invalid user. in index.js"
         });
       } else {
         req.user = user; //set the user to req so other routes can use it
@@ -58,7 +70,7 @@ app.use(function (req, res, next) {
   });
 //simple route 
 app.get("/", (req,res)=>{
-    res.json ({message: "welcom to my app"});
+    res.json ({message: "welcom to "});
 });
 
 require("./routes/department.routes")(app);

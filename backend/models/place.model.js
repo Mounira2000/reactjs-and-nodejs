@@ -3,7 +3,10 @@
 module.exports = (sequelize,Sequelize) => {
     const Place = sequelize.define("place",
     {
-        idP:{
+        image:{
+            type: Sequelize.STRING,
+        },
+        idP:{ 
             type: Sequelize.INTEGER,
              primaryKey: true,
              autoIncrement: true

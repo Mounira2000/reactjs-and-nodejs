@@ -1,0 +1,24 @@
+.imageList{
+    margin-top: 5px;
+}
+
+button{
+    background-color: burlywood;
+    border-radius: 5px;
+    box-shadow: 3px;
+}
+
+button:hover{
+    background-color: brown;
+}
+button:active{
+    background-color: red;
+}
+
+.places{
+    display:inline-block;
+    justify-content: center;
+    border-style: solid;
+    margin-bottom: 3%;
+    border-radius: 10px 0px 10px 0px;
+}

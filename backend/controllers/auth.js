@@ -53,16 +53,18 @@ exports.isAuthenticated = (req, res, next) => {
   jwt.verify(token, process.env.JWT_SECRET, function (err, user) {
     if (err) return res.status(401).json({
       error: true,
-      message: "Invalid token."
+      message: "Invalid token. it was here 1"
     });
 
+    console.log("User information");
+    console.log(user);
     User.findByPk(user.idU)
       .then(data => {
         // return 401 status if the userId does not match.
         if (!user.idU) {
           return res.status(401).json({
             error: true,
-            message: "Invalid user."
+            message: "Invalid user. It was here 2"
           });
         }
         // get basic user details
