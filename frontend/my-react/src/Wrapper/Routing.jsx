@@ -22,7 +22,7 @@ export default function Routing (){
         <Router>
             <Routes>
                 <Route path="act" element={<ActivitiesWrapper/>}>
-                    <Route  path="detail" element={<Detail/>}/>
+                    <Route  path="detail/:id" element={<Detail/>}/>
                     <Route path="listDepartment" element={<ListDepartment/>}/>
                     <Route index element={<List/>}/>
                     <Route path="favPlace" element={<FavPlace/>}/>

@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "./List.module.scss";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faStar,
@@ -38,9 +38,9 @@ export default function List() {
                             <h3 className={styles["description"]}>{value.descriptionPlace}</h3>
                             console.log({value.idP})
                             <div>
-                                <NavLink to="detail">
+                                <Link to={`detail/${value.idP}`}>
                                     <button>Show More</button>
-                                </NavLink>
+                                </Link>
                             </div>
                             <div>
                                 <FontAwesomeIcon icon={faHeart} />
